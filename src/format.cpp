@@ -13,6 +13,10 @@ string Format::ElapsedTime(long seconds) {
     std::string hour = std::to_string(seconds / 3600);
     std::string min = std::to_string((seconds - (stoi(hour) * 3600)) / 60);
     std::string second = std::to_string(seconds % 60);
+
+    if (hour.length() <= 2) {
+        hour.insert(0, 2 - hour.length(), '0');
+    }
     
-    return hour.insert(0, 2 - hour.length(), '0') + ":" + min.insert(0, 2 - min.length(), '0') + ":" + second.insert(0, 2 - second.length(), '0');
+    return hour + ":" + min.insert(0, 2 - min.length(), '0') + ":" + second.insert(0, 2 - second.length(), '0');
 }
