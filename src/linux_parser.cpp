@@ -224,7 +224,7 @@ string LinuxParser::User(int pid) {
 
 // TODO: Read and return the uptime of a process
 // REMOVE: [[maybe_unused]] once you define the function
-long LinuxParser::UpTime(int pid) { return Stat(pid, 21) / sysconf(_SC_CLK_TCK); }
+long LinuxParser::UpTime(int pid) { return UpTime() - (Stat(pid, 21) / sysconf(_SC_CLK_TCK)); }
 
 // TODO: Read and return the uptime of a process
 // REMOVE: [[maybe_unused]] once you define the function
